@@ -1,0 +1,188 @@
+.card {
+
+    //functionality
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 50rem;
+    
+
+    &_side{
+       
+        height: 50rem;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: .5rem;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &--front{
+            background-color: $color-white;
+        }
+
+        &--back{
+        
+            transform: rotateY(-180deg);
+
+            &-1{
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark); 
+                
+            }
+
+            &-2{
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark); 
+            }
+
+            &-3{
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark); 
+            }
+        }
+    }
+
+
+    &:hover &_side--front {
+        transform: rotateY(180deg);
+    }
+
+    &:hover &_side--back {
+        transform: rotateY(0);
+    }
+
+
+    //FRONT SIDE STYLING
+    &_picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: soft-light;
+        -webkit-clip-path: polygon(0 0,100% 0, 100% 85%, 0 100%) ;
+        clip-path: polygon(0 0,100% 0, 100% 85%, 0 100%);
+        
+
+        &--1{
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark) ,url(../img/pict2.jpg)
+        }
+
+        &--2{
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark),url(../img/pict5.jpg)
+        }
+
+        &--3{
+            background-image:linear-gradient(to right bottom, $color-primary-light, $color-primary-dark) ,url(../img/pict3.jpg)
+        }
+
+    }
+
+    &_heading{
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: $color-white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%;
+
+      
+    }
+
+    &_heading-span{
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        &--1 {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark, .85));
+        }
+        &--2 {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark, .85));
+        }
+        &--3 {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, .85), rgba($color-primary-dark, .85));
+        }
+    }
+
+    //BACK SIDE STYLING
+    &_cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    &_price-box{
+        text-align: center;
+        margin-bottom: 8rem;
+        color: $color-white;
+    }
+
+    &_price-only{
+        font-size: 2.5rem;
+        text-transform: uppercase;
+    }
+
+
+
+
+
+
+    @media only screen and (max-width: 56.25em), only screen and (hover: none){
+            //functionality
+       
+        height: auto;
+        border-radius: .5rem;
+        background-color: $color-white;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &_side{
+        
+            height: auto;
+            transition: all .8s ease;
+            position: relative;
+            box-shadow: none;
+           
+     
+
+          
+
+            &--back{
+            
+                transform: rotateY(0);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+            }
+
+
+        }
+
+
+        &:hover &_side--front {
+            transform: rotateY(0);
+        }
+
+
+        &__details {
+            padding: 1rem 3rem;
+        }
+        //BACK SIDE STYLING
+        &_cta {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            width: 100%;
+            padding: 7rem 4rem 4rem 4rem;
+          
+        }
+
+        &_price-box{
+        
+            margin-bottom: 3rem;
+           
+        }
+    }
+}
